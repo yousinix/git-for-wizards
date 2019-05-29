@@ -20,6 +20,10 @@ Show some support to help improve this repo and expose more magic spells!
 - [**1. Magic Wands**](#1-magic-wands)
   - [1.1. Git Command Line Tools](#11-git-command-line-tools)
   - [1.2. GitHub Chrome Extensions](#12-github-chrome-extensions)
+- [**2. Avada Kedavra**](#2-avada-kedavra)
+  - [2.1. Remove local untracked files](#21-remove-local-untracked-files)
+  - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
+  - [2.3. Delete Remote-tracking Branches](#23-delete-remote-tracking-branches)
 
 <!-- /TOC -->
 
@@ -42,3 +46,47 @@ Magic Wands are the **tools and the extensions** that you can use to improve you
 1. [**github-repo-size**](https://github.com/harshjv/github-repo-size): Display repository size on GitHub.
 1. [**git-history-browser-extension**](https://github.com/LuisReinoso/git-history-browser-extension): Add a button to the github file interface to see its history.
 1. [**github-file-icon**](https://github.com/xxhomey19/github-file-icon): Gives different filetypes different icons in GitHub.
+
+---
+
+## 2. Avada Kedavra
+
+Avada Kedavra is your magic spell to **get rid of** all the dead branches and files.
+
+### 2.1. Clean local untracked files
+
+Casting spells for the first time isn't that safe, so you have to see which files will be deleted before you run the actual command.
+
+```bash
+git clean -n
+```
+
+Then when you are comfortable use the `-f` or `-fd` option.
+
+```bash
+git clean -f       # Cleans files only without cleaning directories
+git clean -fd      # Cleans files & directories
+```
+
+### 2.2. Delete All Branches Except `master`
+
+Your repo is getting messy, a lot of branches that you no longer need. No need to worry, a simple magic spell can get most of the work done for you.
+
+```bash
+git branch | grep -v 'master' | xargs git branch -D
+```
+
+You can replace `master` with any other branch name that you want to keep, but be careful **this will delete master**.  
+Or even use a pattern of **more than one branch** to keep them and delete the rest.
+
+```bash
+git branch | grep -v 'master\|gh-pages' | xargs git branch -D
+```
+
+### 2.3. Delete Remote-tracking Branches
+
+Deleting local branches doesn't clean the repo 100%, since they were tracking remote branches, so you will need to burn all those references to the ground. _(This will only work if you've already deleted the remote branch from your GitHub repo)_
+
+```bash
+git fetch --prune
+```
