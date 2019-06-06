@@ -21,9 +21,11 @@ Show some support to help improve this repo and expose more magic spells!
   - [1.1. Git Command Line Tools](#11-git-command-line-tools)
   - [1.2. GitHub Chrome Extensions](#12-github-chrome-extensions)
 - [**2. Avada Kedavra**](#2-avada-kedavra)
-  - [2.1. Remove local untracked files](#21-remove-local-untracked-files)
+  - [2.1. Clean local untracked files](#21-clean-local-untracked-files)
   - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
   - [2.3. Delete Remote-tracking Branches](#23-delete-remote-tracking-branches)
+- [**3. Expecto Patronum**](#3-expecto-patronum)
+  - [3.1. Discover Bugs Using `git bisect`](#31-discover-bugs-using-git-bisect)
 
 <!-- /TOC -->
 
@@ -90,3 +92,33 @@ Deleting local branches doesn't clean the repo 100%, since they were tracking re
 ```bash
 git fetch --prune
 ```
+
+## 3. Expecto Patronum
+
+**Finding bugs** in long git histories isn't that easy, but by summoning a Patronus to help you hunting them, it will be much easier.
+
+### 3.1. Discover Bugs Using `git bisect`
+
+Debug almost all problems that involve a long history of changes, tracked using Git, and discover when you introduced a bug in your code.
+
+1. To start the binary search process, you will need to checkout to your latest commit first, then provide git with 2 commits to search for the bug within, the last good commit and the commit that first introduced the bug
+
+    ```bash
+    git checkout <your-branch-name>
+    git bisect start
+    git bisect good <SHA-for-good-commit>
+    git bisect bad <SHA-for-bad-commit>
+    ```
+
+1. Git will ask for your feedback on some commits, so you will need to tell it if the commit is good or bad, use one of the following commands to do so:
+
+    ```bash
+    git bisect good
+    git bisect bad
+    ```
+
+1. When done, Git will guide you to bugged commit. You will need to exit the binary search process afterwards by using the following command:
+
+    ```bash
+    git bisect reset
+    ```
