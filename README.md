@@ -20,6 +20,7 @@ Show some support to help improve this repo and expose more magic spells!
 - [**1. Magic Wands**](#1-magic-wands)
   - [1.1. Git Command Line Tools](#11-git-command-line-tools)
   - [1.2. GitHub Chrome Extensions](#12-github-chrome-extensions)
+  - [1.3. Update Git to Latest Version](#13-update-git-to-latest-version)
 - [**2. Avada Kedavra**](#2-avada-kedavra)
   - [2.1. Clean local untracked files](#21-clean-local-untracked-files)
   - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
@@ -49,7 +50,22 @@ Magic Wands are the **tools and the extensions** that you can use to improve you
 1. [**git-history-browser-extension**](https://github.com/LuisReinoso/git-history-browser-extension): Add a button to the github file interface to see its history.
 1. [**github-file-icon**](https://github.com/xxhomey19/github-file-icon): Gives different filetypes different icons in GitHub.
 
----
+### 1.3. Update Git to Latest Version
+
+No matter how many wands you use, keeping your _primary wand_ up-to-date is still your duty.
+
+1. First, check your git version
+
+    ```bash
+    git --version
+    ```
+
+1. Then use only one of the following commands according to your git version
+
+    ```bash
+    git update                   # version between 2.14.2 and 2.16.1
+    git update-git-for-windows   # version is equal to greater Git 2.16.1(2)
+    ```
 
 ## 2. Avada Kedavra
 
