@@ -18,17 +18,20 @@ Show some support to help improve this repo and expose more magic spells!
 <!-- TOC depthFrom:2 -->
 
 - [**1. Magic Wands**](#1-magic-wands)
-  - [1.1. Git Command Line Tools](#11-git-command-line-tools)
-  - [1.2. GitHub Chrome Extensions](#12-github-chrome-extensions)
-  - [1.3. Update Git to Latest Version](#13-update-git-to-latest-version)
+    - [1.1. Git Command Line Tools](#11-git-command-line-tools)
+    - [1.2. GitHub Chrome Extensions](#12-github-chrome-extensions)
+    - [1.3. Update Git to Latest Version](#13-update-git-to-latest-version)
 - [**2. Avada Kedavra**](#2-avada-kedavra)
-  - [2.1. Clean local untracked files](#21-clean-local-untracked-files)
-  - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
-  - [2.3. Delete Remote-tracking Branches](#23-delete-remote-tracking-branches)
+    - [2.1. Clean local untracked files](#21-clean-local-untracked-files)
+    - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
+    - [2.3. Delete Remote-tracking Branches](#23-delete-remote-tracking-branches)
 - [**3. Expecto Patronum**](#3-expecto-patronum)
-  - [3.1. Discover Bugs Using `git bisect`](#31-discover-bugs-using-git-bisect)
+    - [3.1. Discover Bugs Using `git bisect`](#31-discover-bugs-using-git-bisect)
 - [**4. Obliviate**](#4-obliviate)
-  - [4.1. Create Orphan Branch](#41-create-orphan-branch)
+    - [4.1. Create Orphan Branch](#41-create-orphan-branch)
+- [**5. The THANK YOU Spell :heart:**](#5-the-thank-you-spell-heart)
+    - [5.1. References and Acknowledgments](#51-references-and-acknowledgments)
+    - [5.2. Contributors](#52-contributors)
 
 <!-- /TOC -->
 
@@ -170,3 +173,16 @@ git checkout --orphan <new-branch-name>
 rm .git/index
 git clean -fdx
 ```
+
+## 5. The THANK YOU Spell :heart:
+
+### 5.1. References and Acknowledgments
+
+1. [Orphaned Branches in Git](https://bugfactory.io/2016/02/12/orphaned-brachnes-in-git/)
+
+### 5.2. Contributors
+
+[![People who made it possible!][contrib-img]][contrib]
+
+[contrib]: https://github.com/YoussefRaafatNasry/git-for-wizards/graphs/contributors
+[contrib-img]: https://contributors-img.firebaseapp.com/image?repo=YoussefRaafatNasry/git-for-wizards
