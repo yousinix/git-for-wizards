@@ -27,6 +27,8 @@ Show some support to help improve this repo and expose more magic spells!
   - [2.3. Delete Remote-tracking Branches](#23-delete-remote-tracking-branches)
 - [**3. Expecto Patronum**](#3-expecto-patronum)
   - [3.1. Discover Bugs Using `git bisect`](#31-discover-bugs-using-git-bisect)
+- [**4. Obliviate**](#4-obliviate)
+  - [4.1. Create Orphan Branch](#41-create-orphan-branch)
 
 <!-- /TOC -->
 
@@ -138,3 +140,33 @@ Debug almost all problems that involve a long history of changes, tracked using 
     ```bash
     git bisect reset
     ```
+
+## 4. Obliviate
+
+Obliviate is a spell used to wipe memories, to forget about things, like old git histories, and start fresh.
+
+### 4.1. Create Orphan Branch
+
+Orphan branches aren't based on any other branches.The first commit made on this new orphan branch will have no parents and it will be the **root of a new history** totally disconnected from all the other branches and commits.  
+If you are using [GitHub Pages](https://pages.github.com/) this might be helpful as you can create a new branch named `gh-pages`. This branch is “orphaned” and therefore completely separate from your repository’s prior history.
+
+```bash
+
+                                                    |
+            i---j---k     <== branch 'feature-1'    |
+           /                                        |    a---b---c---d       <== branch 'master'
+  a---b---c---d---h---l   <== branch 'master'       |
+       \         /                                  |        1---2---3---4   <== branch 'gh-pages' (orphan)
+        e---f---g         <== branch 'feature-2'    |
+                                                    |
+                 [Normal Branches]                  |                    [Orphan Branch]
+
+```
+
+To create a new empty orphan branch, use the following commands
+
+```bash
+git checkout --orphan <new-branch-name>
+rm .git/index
+git clean -fdx
+```
