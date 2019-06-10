@@ -29,9 +29,17 @@ Show some support to help improve this repo and expose more magic spells!
     - [3.1. Discover Bugs Using `git bisect`](#31-discover-bugs-using-git-bisect)
 - [**4. Obliviate**](#4-obliviate)
     - [4.1. Create Orphan Branch](#41-create-orphan-branch)
-- [**5. The THANK YOU Spell :heart:**](#5-the-thank-you-spell-heart)
-    - [5.1. References and Acknowledgments](#51-references-and-acknowledgments)
-    - [5.2. Contributors](#52-contributors)
+- [**5. Riddikulus**](#5-riddikulus)
+    - [5.1. Count Occurrence of Pattern](#51-count-occurrence-of-pattern)
+    - [5.2. Count Number of Commits](#52-count-number-of-commits)
+    - [5.3. Count Lines of Code](#53-count-lines-of-code)
+    - [5.4. Count Lines Changed](#54-count-lines-changed)
+    - [5.5. Export Full Log to File](#55-export-full-log-to-file)
+    - [5.6. List Ignored Files](#56-list-ignored-files)
+    - [5.7. List Large Files](#57-list-large-files)
+- [**6. The THANK YOU Spell** :heart:](#6-the-thank-you-spell-heart)
+    - [6.1. References and Acknowledgments](#61-references-and-acknowledgments)
+    - [6.2. Contributors](#62-contributors)
 
 <!-- /TOC -->
 
@@ -174,13 +182,99 @@ rm .git/index
 git clean -fdx
 ```
 
-## 5. The THANK YOU Spell :heart:
+## 5. Riddikulus
 
-### 5.1. References and Acknowledgments
+Riddikulus is used to transforms nasty git repositories from something scary as complicated long histories into something silly as numbers, lists, insights and statistics.
+
+### 5.1. Count Occurrence of Pattern
+
+Let's say you want to count how many lambda expressions (`->`) you've used in all `.java` files, a quick spell can count it for you in the blink of an eye.
+
+```bash
+git grep '\->' '*.java' | wc -l
+```
+
+### 5.2. Count Number of Commits
+
+You've been committing for so long now, maybe it's time to know how many commits are out there now.
+
+```bash
+git rev-list --count <branch-name>   # One branch
+git rev-list --count --all           # All branches
+```
+
+### 5.3. Count Lines of Code
+
+Curiosity is an enough reason to know loc.
+
+```bash
+git ls-files | xargs wc -l         # Detailed
+git ls-files | xargs cat | wc -l   # Total
+```
+
+### 5.4. Count Lines Changed
+
+You have been working on multiple features, and now you wanna know how many lines you have touched. It's fine spells got your back.
+_**Note:** Add `--staged` if your changes were staged._
+
+```bash
+git diff --stat        # Detailed
+git diff --shortstat   # Total
+```
+
+### 5.5. Export Full Log to File
+
+Exporting your repository log to a file might be helpful sometimes, just learn this spell until the time comes and you need it.
+
+1. **Text File**
+
+    ```bash
+    git log > log.txt
+    ```
+
+1. **JSON File** _(refer to [pretty-formats](https://git-scm.com/docs/pretty-formats) for more placeholders)_
+
+    ```bash
+    git log --pretty=format:'{
+        "commit": "%H",
+        "subject": "%s",
+        "body": "%b",
+        "author": {
+            "name": "%aN",
+            "email": "%aE",
+            "date": "%aD"
+        }
+    },' > log.json
+    ```
+
+### 5.6. List Ignored Files
+
+You wanna make sure that your `.gitignore` is working fine and that all files that you want to ignore are really ignored. Here's a quick spell for you.
+
+```bash
+git ls-files --others --ignored --exclude-standard
+```
+
+### 5.7. List Large Files
+
+Keeping track of your repository size is something that you need to learn, this spell might be helpful if you managed to do so.
+
+```bash
+git rev-list --objects --all \
+| git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+| sed -n 's/^blob //p' \
+| sort --numeric-sort --key=2 \
+| cut -c 1-12,41- \
+| $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
+```
+
+## 6. The THANK YOU Spell :heart:
+
+### 6.1. References and Acknowledgments
 
 1. [Orphaned Branches in Git](https://bugfactory.io/2016/02/12/orphaned-brachnes-in-git/)
 
-### 5.2. Contributors
+### 6.2. Contributors
 
 [![People who made it possible!][contrib-img]][contrib]
 
