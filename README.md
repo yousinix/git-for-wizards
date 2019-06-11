@@ -37,9 +37,16 @@ Show some support to help improve this repo and expose more magic spells!
     - [5.5. Export Full Log to File](#55-export-full-log-to-file)
     - [5.6. List Ignored Files](#56-list-ignored-files)
     - [5.7. List Large Files](#57-list-large-files)
-- [**6. The THANK YOU Spell** :heart:](#6-the-thank-you-spell-heart)
-    - [6.1. References and Acknowledgments](#61-references-and-acknowledgments)
-    - [6.2. Contributors](#62-contributors)
+- [**6. Markdown Beautifio**](#6-markdown-beautifio)
+    - [6.1. Icons](#61-icons)
+    - [6.2. Contributors Image](#62-contributors-image)
+    - [6.3. Dropdowns](#63-dropdowns)
+    - [6.4. Badges](#64-badges)
+    - [6.5. Captions](#65-captions)
+    - [6.6. README Headers](#66-readme-headers)
+- [**7. The THANK YOU Spell :heart:**](#7-the-thank-you-spell-heart)
+    - [7.1. References and Acknowledgments](#71-references-and-acknowledgments)
+    - [7.2. Contributors](#72-contributors)
 
 <!-- /TOC -->
 
@@ -268,13 +275,142 @@ git rev-list --objects --all \
 | $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
 ```
 
-## 6. The THANK YOU Spell :heart:
+## 6. Markdown Beautifio
 
-### 6.1. References and Acknowledgments
+Some spells that you can use on GitHub to add a bit of _"beautifulness"_ to your **markdown**.
+
+### 6.1. Icons
+
+Adding icons to markdown files isn't that hard, you can use any of those two providers to help you:
+
+1. [**ImgPlaceholder**](https://imgplaceholder.com)
+  
+    - Supports Font Awesome, Ionicons & Glyphicons.
+    - Customizable size, foreground color & background color.
+    - Can be written in markdown or HTML syntax.
+    - Lower quality.
+
+        ```markdown
+        ![imgplaceholder](https://imgplaceholder.com/80x80/transparent/000000/fa-github?font-size=92)
+        ```
+
+        ![imgplaceholder](https://imgplaceholder.com/80x80/transparent/000000/fa-github?font-size=92)
+
+2. [**Simple Icons**](https://simpleicons.org/)
+
+    - Supports [SVG icons](https://github.com/simple-icons/simple-icons/tree/develop/icons) for popular brands only.
+    - Black color only.
+    - HTML syntax only.
+    - Higher quality.
+
+        ```markdown
+        <img alt="simple-icons" width="80" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
+        ```
+
+        <img alt="simple-icons" width="80" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
+
+### 6.2. Contributors Image
+
+[contributors-img](https://contributors-img.firebaseapp.com/) provides a good way for adding a good looking image of your contributors in your markdown file.
+
+```markdown
+[![Contributors][contributors-img]][contributors]
+
+[contributors]: https://github.com/USERNAME/REPONAME/graphs/contributors
+[contributors-img]: https://contributors-img.firebaseapp.com/image?repo=USERNAME/REPONAME
+```
+
+[![Angular Contributors][contributors-img]][contributors]
+
+[contributors]: https://github.com/angular/angular-ja/graphs/contributors
+[contributors-img]: https://contributors-img.firebaseapp.com/image?repo=angular/angular-ja
+
+### 6.3. Dropdowns
+
+Keep the less useful content collapsed, no one needs to see it!
+
+```markdown
+<details>
+
+<summary><b>Example</b></summary>
+<br/>
+
+1. Remove the `<b>` & `<br/>` tags if you want, it's fine.
+1. Don't forget to surround the body with blank lines.
+1. Supports **Markdown** _Syntax_. Including Images.
+
+![git-for-wizards](https://imgplaceholder.com/1000x200/992c2c/ffffff?text=Git+for+Wizards&font-family=OpenSans_Bold)
+
+</details>
+```
+
+<details>
+
+<summary><b>Example</b></summary>
+<br/>
+
+1. Remove the `<b>` & `<br/>` tags if you want, it's fine.
+1. Don't forget to surround the body with blank lines.
+1. Supports **Markdown** _Syntax_. Including Images.
+
+![git-for-wizards](https://imgplaceholder.com/1000x200/992c2c/ffffff?text=Git+for+Wizards&font-family=OpenSans_Bold)
+
+</details>
+
+### 6.4. Badges
+
+A wise wizard once said _"Just add more badges!"_.  
+Maybe that's why they created [**shields.io**](https://shields.io/).
+
+```markdown
+![GitHub last commit](https://img.shields.io/github/last-commit/YoussefRaafatNasry/git-for-wizards.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/YoussefRaafatNasry/git-for-wizards.svg)
+```
+
+![GitHub last commit](https://img.shields.io/github/last-commit/YoussefRaafatNasry/git-for-wizards.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/YoussefRaafatNasry/git-for-wizards.svg)
+
+### 6.5. Captions
+
+Some photos are meaningless without captions, but wizards know how to handle that!
+
+```markdown
+<div align="center">
+    <img src="https://imgplaceholder.com/480x200/992c2c/ffffff?text=Git+for+Wizards&font-family=OpenSans_Bold" />
+    <sub><sup>© 2019, licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</sup></sub>
+</div>
+```
+
+<div align="center">
+    <img src="https://imgplaceholder.com/1000x200/992c2c/ffffff?text=Git+for+Wizards&font-family=OpenSans_Bold" />
+    <sub><sup>© 2019, licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</sup></sub>
+</div>
+
+### 6.6. README Headers
+
+This will be enough as a start to add a cool header for your README file, but try to be more creative.
+
+```markdown
+<div align="center">
+    <img src="https://imgplaceholder.com/100x100/transparent/323232/ion-ios-color-wand?font-size=100" />
+    <h3>Git for Wizards</h3>
+    <strong>Some magic spells and wands for Git & GitHub</strong>
+</div>
+```
+
+<div align="center">
+    <img src="https://imgplaceholder.com/100x100/transparent/323232/ion-ios-color-wand?font-size=100" />
+    <h3>Git for Wizards</h3>
+    <strong>Some magic spells and wands for Git & GitHub</strong>
+</div>
+
+## 7. The THANK YOU Spell :heart:
+
+### 7.1. References and Acknowledgments
 
 1. [Orphaned Branches in Git](https://bugfactory.io/2016/02/12/orphaned-brachnes-in-git/)
 
-### 6.2. Contributors
+### 7.2. Contributors
 
 [![People who made it possible!][contrib-img]][contrib]
 
