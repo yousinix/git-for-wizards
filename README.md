@@ -416,3 +416,20 @@ This will be enough as a start to add a cool header for your README file, but tr
 
 [contrib]: https://github.com/YoussefRaafatNasry/git-for-wizards/graphs/contributors
 [contrib-img]: https://contributors-img.firebaseapp.com/image?repo=YoussefRaafatNasry/git-for-wizards
+
+---
+
+<!-- Footer -->
+
+<div align="center">
+    <h3>Congratulations!</h3>
+    <small>
+    You have finally reached the end!<br/>
+    You've done it all. You are FREE now!<br/>
+    <sub><i>* Please don't forget to turn off the lights on your way out.</i></sub><br/>
+    </small>
+    <br/>
+    <img src="https://user-images.githubusercontent.com/41103290/59287218-8742b600-8c71-11e9-8104-f31f8a612ff6.gif">
+    <br/>
+    <sub><sup><b>© 2019 git-for-wizards</b></sup></sub>
+</div>
