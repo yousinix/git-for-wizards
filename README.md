@@ -20,7 +20,8 @@ Show some support to help improve this repo and expose more magic spells!
 - [**1. Magic Wands**](#1-magic-wands)
     - [1.1. Git Command Line Tools](#11-git-command-line-tools)
     - [1.2. GitHub Chrome Extensions](#12-github-chrome-extensions)
-    - [1.3. Update Git to Latest Version](#13-update-git-to-latest-version)
+    - [1.3. VS Code Extensions](#13-vs-code-extensions)
+    - [1.4. Update Git to Latest Version](#14-update-git-to-latest-version)
 - [**2. Avada Kedavra**](#2-avada-kedavra)
     - [2.1. Clean local untracked files](#21-clean-local-untracked-files)
     - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
@@ -70,7 +71,17 @@ Magic Wands are the **tools and the extensions** that you can use to improve you
 1. [**git-history-browser-extension**](https://github.com/LuisReinoso/git-history-browser-extension): Add a button to the github file interface to see its history.
 1. [**github-file-icon**](https://github.com/xxhomey19/github-file-icon): Gives different filetypes different icons in GitHub.
 
-### 1.3. Update Git to Latest Version
+### 1.3. VS Code Extensions
+
+1. [**GitLens**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens): Supercharges the Git capabilities built into Visual Studio Code.
+1. [**Git Blame**](https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame): See git blame information in the status bar.
+1. [**Git History**](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory): View git log, file history, compare branches or commits.
+1. [**Code Spell Checker**](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): A basic spell checker that works well with camelCase code. No more _"Fix Typo"_ commits.
+1. [**Markdown Preview Github Styling**](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles): Changes VS Code's built-in markdown preview to match Github's style.
+1. [**Markdown TOC**](https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc): Markdown TOC _(Table Of Contents)_ Plugin for Visual Studio Code.
+1. [**markdownlint**](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint): Markdown linting and style checking for Visual Studio Code.
+
+### 1.4. Update Git to Latest Version
 
 No matter how many wands you use, keeping your _primary wand_ up-to-date is still your duty.
 
