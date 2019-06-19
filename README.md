@@ -6,10 +6,10 @@ This repo is about, _yeah you guessed it right_, Git & GitHub. I will be exposin
 Show some support to help improve this repo and expose more magic spells!
 
 [![followers](https://img.shields.io/github/followers/YoussefRaafatNasry.svg?style=social)][gh-profile]
-[![endorsements](https://img.shields.io/badge/Git-endrose%20me-green.svg?logo=linkedin&style=social)][in-profile]
+[![endorsements](https://img.shields.io/badge/Git-Endrose%20Me-green.svg?logo=linkedin&style=social)][in-profile]
 
 [gh-profile]: https://github.com/YoussefRaafatNasry
-[in-profile]: https://www.linkedin.com/in/youssefraafatnasry
+[in-profile]: https://linkedin.com/in/YoussefRaafatNasry
 
 ---
 
@@ -23,7 +23,7 @@ Show some support to help improve this repo and expose more magic spells!
     - [1.3. VS Code Extensions](#13-vs-code-extensions)
     - [1.4. Update Git to Latest Version](#14-update-git-to-latest-version)
 - [**2. Avada Kedavra**](#2-avada-kedavra)
-    - [2.1. Clean local untracked files](#21-clean-local-untracked-files)
+    - [2.1. Clean Local Untracked Files](#21-clean-local-untracked-files)
     - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
     - [2.3. Delete Remote-tracking Branches](#23-delete-remote-tracking-branches)
 - [**3. Expecto Patronum**](#3-expecto-patronum)
@@ -94,15 +94,17 @@ No matter how many wands you use, keeping your _primary wand_ up-to-date is stil
 1. Then use only one of the following commands according to your git version
 
     ```bash
-    git update                   # version between 2.14.2 and 2.16.1
-    git update-git-for-windows   # version is equal to greater Git 2.16.1(2)
+    git update                    # version between 2.14.2 and 2.16.1
+    git update-git-for-windows    # version is equal to greater Git 2.16.1(2)
     ```
+
+---
 
 ## 2. Avada Kedavra
 
 Avada Kedavra is your magic spell to **get rid of** all the dead branches and files.
 
-### 2.1. Clean local untracked files
+### 2.1. Clean Local Untracked Files
 
 Casting spells for the first time isn't that safe, so you have to see which files will be deleted before you run the actual command.
 
@@ -113,8 +115,8 @@ git clean -n
 Then when you are comfortable use the `-f` or `-fd` option.
 
 ```bash
-git clean -f       # Cleans files only without cleaning directories
-git clean -fd      # Cleans files & directories
+git clean -f     # Cleans files only without cleaning directories
+git clean -fd    # Cleans files & directories
 ```
 
 ### 2.2. Delete All Branches Except `master`
@@ -139,6 +141,8 @@ Deleting local branches doesn't clean the repo 100%, since they were tracking re
 ```bash
 git fetch --prune
 ```
+
+---
 
 ## 3. Expecto Patronum
 
@@ -170,9 +174,11 @@ Debug almost all problems that involve a long history of changes, tracked using 
     git bisect reset
     ```
 
+---
+
 ## 4. Obliviate
 
-Obliviate is a spell used to wipe memories, to forget about things, like old git histories, and start fresh.
+Obliviate is a spell used to **wipe memories**, to forget about things, like old git histories, and **start fresh**.
 
 ### 4.1. Create Orphan Branch
 
@@ -181,14 +187,14 @@ If you are using [GitHub Pages](https://pages.github.com/) this might be helpful
 
 ```bash
 
-                                                    |
-            i---j---k     <== branch 'feature-1'    |
-           /                                        |    a---b---c---d       <== branch 'master'
-  a---b---c---d---h---l   <== branch 'master'       |
-       \         /                                  |        1---2---3---4   <== branch 'gh-pages' (orphan)
-        e---f---g         <== branch 'feature-2'    |
-                                                    |
-                 [Normal Branches]                  |                    [Orphan Branch]
+                                                      |
+              i---j---k     <== branch 'feature-1'    |
+             /                                        |    a---b---c---d       <== branch 'master'
+    a---b---c---d---h---l   <== branch 'master'       |
+         \         /                                  |        1---2---3---4   <== branch 'gh-pages' (orphan)
+          e---f---g         <== branch 'feature-2'    |
+                                                      |
+                   [Normal Branches]                  |                    [Orphan Branch]
 
 ```
 
@@ -200,9 +206,11 @@ rm .git/index
 git clean -fdx
 ```
 
+---
+
 ## 5. Riddikulus
 
-Riddikulus is used to transforms nasty git repositories from something scary as complicated long histories into something silly as numbers, lists, insights and statistics.
+Riddikulus is used to **transforms nasty git repositories** from something scary as complicated long histories **into something silly** as numbers, lists, insights and statistics.
 
 ### 5.1. Count Occurrence of Pattern
 
@@ -217,8 +225,8 @@ git grep '\->' '*.java' | wc -l
 You've been committing for so long now, maybe it's time to know how many commits are out there now.
 
 ```bash
-git rev-list --count <branch-name>   # One branch
-git rev-list --count --all           # All branches
+git rev-list --count <branch-name>    # One branch
+git rev-list --count --all            # All branches
 ```
 
 ### 5.3. Count Lines of Code
@@ -226,8 +234,8 @@ git rev-list --count --all           # All branches
 Curiosity is an enough reason to know loc.
 
 ```bash
-git ls-files | xargs wc -l         # Detailed
-git ls-files | xargs cat | wc -l   # Total
+git ls-files | xargs wc -l          # Detailed
+git ls-files | xargs cat | wc -l    # Total
 ```
 
 ### 5.4. Count Lines Changed
@@ -236,8 +244,8 @@ You have been working on multiple features, and now you wanna know how many line
 _**Note:** Add `--staged` if your changes were staged._
 
 ```bash
-git diff --stat        # Detailed
-git diff --shortstat   # Total
+git diff --stat         # Detailed
+git diff --shortstat    # Total
 ```
 
 ### 5.5. Export Full Log to File
@@ -286,9 +294,11 @@ git rev-list --objects --all \
 | $(command -v gnumfmt || echo numfmt) --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
 ```
 
+---
+
 ## 6. Markdown Beautifio
 
-Some spells that you can use on GitHub to add a bit of _"beautifulness"_ to your **markdown**.
+Some spells that you can use on GitHub to add a bit of _"beautifulness"_ to your **markdown files**.
 
 ### 6.1. Icons
 
@@ -314,7 +324,7 @@ Adding icons to markdown files isn't that hard, you can use any of those two pro
     - HTML syntax only.
     - Higher quality.
 
-        ```markdown
+        ```html
         <img alt="simple-icons" width="80" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
         ```
 
@@ -385,15 +395,17 @@ Maybe that's why they created [**shields.io**](https://shields.io/).
 
 Some photos are meaningless without captions, but wizards know how to handle that!
 
-```markdown
+```html
 <div align="center">
     <img src="https://imgplaceholder.com/480x200/992c2c/ffffff?text=Git+for+Wizards&font-family=OpenSans_Bold" />
+    <br/>
     <sub><sup>© 2019, licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</sup></sub>
 </div>
 ```
 
 <div align="center">
     <img src="https://imgplaceholder.com/1000x200/992c2c/ffffff?text=Git+for+Wizards&font-family=OpenSans_Bold" />
+    <br/>
     <sub><sup>© 2019, licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</sup></sub>
 </div>
 
@@ -401,7 +413,7 @@ Some photos are meaningless without captions, but wizards know how to handle tha
 
 This will be enough as a start to add a cool header for your README file, but try to be more creative.
 
-```markdown
+```html
 <div align="center">
     <img src="https://imgplaceholder.com/100x100/transparent/323232/ion-ios-color-wand?font-size=100" />
     <h3>Git for Wizards</h3>
@@ -410,20 +422,24 @@ This will be enough as a start to add a cool header for your README file, but tr
 ```
 
 <div align="center">
-    <img src="https://imgplaceholder.com/100x100/transparent/323232/ion-ios-color-wand?font-size=100" />
+    <img src="https://imgplaceholder.com/100x100/transparent/000000/ion-ios-color-wand?font-size=100" />
     <h3>Git for Wizards</h3>
     <strong>Some magic spells and wands for Git & GitHub</strong>
 </div>
+
+---
 
 ## 7. The THANK YOU Spell :heart:
 
 ### 7.1. References and Acknowledgments
 
+1. [How to discover a bug using git bisect?](https://flaviocopes.com/git-bisect/)
+1. [How to find/identify large commits in git history?](https://stackoverflow.com/a/42544963/10194811)
 1. [Orphaned Branches in Git](https://bugfactory.io/2016/02/12/orphaned-brachnes-in-git/)
 
 ### 7.2. Contributors
 
-[![People who made it possible!][contrib-img]][contrib]
+[![contributors][contrib-img]][contrib]
 
 [contrib]: https://github.com/YoussefRaafatNasry/git-for-wizards/graphs/contributors
 [contrib-img]: https://contributors-img.firebaseapp.com/image?repo=YoussefRaafatNasry/git-for-wizards
