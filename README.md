@@ -458,5 +458,5 @@ This will be enough as a start to add a cool header for your README file, but tr
     <br/>
     <img src="https://user-images.githubusercontent.com/41103290/59287218-8742b600-8c71-11e9-8104-f31f8a612ff6.gif">
     <br/>
-    <sub><sup><b>© 2019 git-for-wizards</b></sup></sub>
+    <sub><sup><b>© 2019 git-for-wizards, licensed under the <a href="./LICENSE.md">MIT License</a>.</b></sup></sub>
 </div>
