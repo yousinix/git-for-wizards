@@ -305,17 +305,18 @@ Some spells that you can use on GitHub to add a bit of _"beautifulness"_ to your
 Adding icons to markdown files isn't that hard, you can use any of those two providers to help you:
 
 1. [**ImgPlaceholder**](https://imgplaceholder.com)
-  
+
     - Supports Font Awesome, Ionicons & Glyphicons.
     - Customizable size, foreground color & background color.
     - Can be written in markdown or HTML syntax.
     - Lower quality.
+    <br/><br/>
 
-        ```markdown
-        ![imgplaceholder](https://imgplaceholder.com/80x80/transparent/000000/fa-github?font-size=92)
-        ```
+    ```markdown
+    ![imgplaceholder](https://imgplaceholder.com/80x80/transparent/000000/fa-github?font-size=92)
+    ```
 
-        ![imgplaceholder](https://imgplaceholder.com/80x80/transparent/000000/fa-github?font-size=92)
+    ![imgplaceholder](https://imgplaceholder.com/80x80/transparent/000000/fa-github?font-size=92)
 
 2. [**Simple Icons**](https://simpleicons.org/)
 
@@ -323,12 +324,13 @@ Adding icons to markdown files isn't that hard, you can use any of those two pro
     - Black color only.
     - HTML syntax only.
     - Higher quality.
+    <br/><br/>
 
-        ```html
-        <img alt="simple-icons" width="80" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
-        ```
+    ```html
+    <img alt="simple-icons" width="80" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
+    ```
 
-        <img alt="simple-icons" width="80" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
+    <img alt="simple-icons" width="80" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
 
 ### 6.2. Contributors Image
 
