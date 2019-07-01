@@ -43,12 +43,14 @@ Show some support to help improve this repo and expose more magic spells!
     - [6.6. List Ignored Files](#66-list-ignored-files)
     - [6.7. List Large Files](#67-list-large-files)
 - [**7. Markdown Beautifio**](#7-markdown-beautifio)
-    - [7.1. Icons](#71-icons)
-    - [7.2. Contributors Image](#72-contributors-image)
-    - [7.3. Dropdowns](#73-dropdowns)
-    - [7.4. Badges](#74-badges)
-    - [7.5. Captions](#75-captions)
-    - [7.6. README Headers](#76-readme-headers)
+    - [7.1. Keyboard Key Strokes](#71-keyboard-key-strokes)
+    - [7.2. Mathematics Equations](#72-mathematics-equations)
+    - [7.3. Icons](#73-icons)
+    - [7.4. Contributors Image](#74-contributors-image)
+    - [7.5. Dropdowns](#75-dropdowns)
+    - [7.6. Badges](#76-badges)
+    - [7.7. Captions](#77-captions)
+    - [7.8. README Headers](#78-readme-headers)
 - [**8. The THANK YOU Spell :heart:**](#8-the-thank-you-spell-heart)
     - [8.1. References and Acknowledgments](#81-references-and-acknowledgments)
     - [8.2. Contributors](#82-contributors)
@@ -369,7 +371,34 @@ git rev-list --objects --all \
 
 Some spells that you can use on GitHub to add a bit of _"beautifulness"_ to your **markdown files**.
 
-### 7.1. Icons
+### 7.1. Keyboard Key Strokes
+
+Writing key strokes as plain text is the unforgivable sin that we are trying to void here using this spell.
+
+```html
+Press the following to save: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>s</kbd>
+```
+
+Press the following to save: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>s</kbd>
+
+### 7.2. Mathematics Equations
+
+Mathematicians are somehow wizards too, they need to write their equations and formulas.  
+**CodeCogs** provides a good solution for embedding mathematics equations as images in markdown files, like the following equation.
+
+![My Awesome Equation](https://latex.codecogs.com/png.latex?%5Cinline%20%5Cdpi%7B200%7D%20%5Csmall%20%5Cint%20u%20%5Cfrac%7Bdv%7D%7Bdx%7D%5C%2Cdx%3Duv-%5Cint%20%5Cfrac%7Bdu%7D%7Bdx%7Dv%5C%2Cdx)
+
+1. Write your equation in the [Equation Editor](https://www.codecogs.com/latex/eqneditor.php).
+1. Edit Image type, font, and size.
+1. Choose **URL (encoded)** from the combobox at the end of the page.
+1. Use the copied URL in a markdown **image** as follows:
+
+```markdown
+![My Awesome Equation](Endoded_URL_Here)
+```
+
+
+### 7.3. Icons
 
 Adding icons to markdown files isn't that hard, you can use any of those two providers to help you:
 
@@ -401,7 +430,7 @@ Adding icons to markdown files isn't that hard, you can use any of those two pro
 
     <img alt="simple-icons" width="80" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
 
-### 7.2. Contributors Image
+### 7.4. Contributors Image
 
 [contributors-img](https://contributors-img.firebaseapp.com/) provides a good way for adding a good looking image of your contributors in your markdown file.
 
@@ -417,7 +446,7 @@ Adding icons to markdown files isn't that hard, you can use any of those two pro
 [contributors]: https://github.com/angular/angular-ja/graphs/contributors
 [contributors-img]: https://contributors-img.firebaseapp.com/image?repo=angular/angular-ja
 
-### 7.3. Dropdowns
+### 7.5. Dropdowns
 
 Keep the less useful content collapsed, no one needs to see it!
 
@@ -449,7 +478,7 @@ Keep the less useful content collapsed, no one needs to see it!
 
 </details>
 
-### 7.4. Badges
+### 7.6. Badges
 
 A wise wizard once said _"Just add more badges!"_.  
 Maybe that's why they created [**shields.io**](https://shields.io/).
@@ -462,7 +491,7 @@ Maybe that's why they created [**shields.io**](https://shields.io/).
 ![GitHub last commit](https://img.shields.io/github/last-commit/YoussefRaafatNasry/git-for-wizards.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/YoussefRaafatNasry/git-for-wizards.svg)
 
-### 7.5. Captions
+### 7.7. Captions
 
 Some photos are meaningless without captions, but wizards know how to handle that!
 
@@ -480,7 +509,7 @@ Some photos are meaningless without captions, but wizards know how to handle tha
     <sub><sup>© 2019, licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</sup></sub>
 </div>
 
-### 7.6. README Headers
+### 7.8. README Headers
 
 This will be enough as a start to add a cool header for your README file, but try to be more creative.
 
