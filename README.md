@@ -26,28 +26,32 @@ Show some support to help improve this repo and expose more magic spells!
     - [2.1. Clean Local Untracked Files](#21-clean-local-untracked-files)
     - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
     - [2.3. Delete Remote-tracking Branches](#23-delete-remote-tracking-branches)
-- [**3. Expecto Patronum**](#3-expecto-patronum)
-    - [3.1. Discover Bugs Using `git bisect`](#31-discover-bugs-using-git-bisect)
-- [**4. Obliviate**](#4-obliviate)
-    - [4.1. Create Orphan Branch](#41-create-orphan-branch)
-- [**5. Riddikulus**](#5-riddikulus)
-    - [5.1. Count Occurrence of Pattern](#51-count-occurrence-of-pattern)
-    - [5.2. Count Number of Commits](#52-count-number-of-commits)
-    - [5.3. Count Lines of Code](#53-count-lines-of-code)
-    - [5.4. Count Lines Changed](#54-count-lines-changed)
-    - [5.5. Export Full Log to File](#55-export-full-log-to-file)
-    - [5.6. List Ignored Files](#56-list-ignored-files)
-    - [5.7. List Large Files](#57-list-large-files)
-- [**6. Markdown Beautifio**](#6-markdown-beautifio)
-    - [6.1. Icons](#61-icons)
-    - [6.2. Contributors Image](#62-contributors-image)
-    - [6.3. Dropdowns](#63-dropdowns)
-    - [6.4. Badges](#64-badges)
-    - [6.5. Captions](#65-captions)
-    - [6.6. README Headers](#66-readme-headers)
-- [**7. The THANK YOU Spell :heart:**](#7-the-thank-you-spell-heart)
-    - [7.1. References and Acknowledgments](#71-references-and-acknowledgments)
-    - [7.2. Contributors](#72-contributors)
+- [**3. Reparo**](#3-reparo)
+    - [3.1. Rebase Without Changing Dates](#31-rebase-without-changing-dates)
+    - [3.2. Set Committer Date to Author Date for Multiple Commits](#32-set-committer-date-to-author-date-for-multiple-commits)
+    - [3.3. Set Commit's Date to Custom Date](#33-set-commits-date-to-custom-date)
+- [**4. Expecto Patronum**](#4-expecto-patronum)
+    - [4.1. Discover Bugs Using `git bisect`](#41-discover-bugs-using-git-bisect)
+- [**5. Obliviate**](#5-obliviate)
+    - [5.1. Create Orphan Branch](#51-create-orphan-branch)
+- [**6. Riddikulus**](#6-riddikulus)
+    - [6.1. Count Occurrence of Pattern](#61-count-occurrence-of-pattern)
+    - [6.2. Count Number of Commits](#62-count-number-of-commits)
+    - [6.3. Count Lines of Code](#63-count-lines-of-code)
+    - [6.4. Count Lines Changed](#64-count-lines-changed)
+    - [6.5. Export Full Log to File](#65-export-full-log-to-file)
+    - [6.6. List Ignored Files](#66-list-ignored-files)
+    - [6.7. List Large Files](#67-list-large-files)
+- [**7. Markdown Beautifio**](#7-markdown-beautifio)
+    - [7.1. Icons](#71-icons)
+    - [7.2. Contributors Image](#72-contributors-image)
+    - [7.3. Dropdowns](#73-dropdowns)
+    - [7.4. Badges](#74-badges)
+    - [7.5. Captions](#75-captions)
+    - [7.6. README Headers](#76-readme-headers)
+- [**8. The THANK YOU Spell :heart:**](#8-the-thank-you-spell-heart)
+    - [8.1. References and Acknowledgments](#81-references-and-acknowledgments)
+    - [8.2. Contributors](#82-contributors)
 
 <!-- /TOC -->
 
@@ -144,11 +148,76 @@ git fetch --prune
 
 ---
 
-## 3. Expecto Patronum
+## 3. Reparo
+
+Reapro is a spell that help you **fixing** your repository history.
+
+> **CAUTION!:** Remember that those spells rewrite history, every commit included in the range will be rewritten. Don’t include any commit you’ve already pushed to a central server — doing so will confuse other developers by providing an alternate version of the same change
+
+### 3.1. Rebase Without Changing Dates
+
+Whenever you use `git rebase`, the `CommitDate` and `SHA` are updated to current date.
+
+```bash
+                    [Before rebase]                    |                     [After rebase]
+                                                       |
+    commit e7ee3464aa3c133df6f5ee622be863bc855dc8fd    |    commit eda7945c8d944e78d226b13a5c7280977f65a8c6
+    Author:     Youssef Raafat <...>                   |    Author:     Youssef Raafat <...>
+    AuthorDate: Sun Jun 30 02:05:07 2019 +0200         |    AuthorDate: Sun Jun 30 02:05:07 2019 +0200
+    Commit:     Youssef Raafat <...>                   |    Commit:     Youssef Raafat <...>
+    CommitDate: Sun Jun 30 02:05:07 2019 +0200         |    CommitDate: Mon Jul 1 02:06:20 2019 +0200
+                                                       |
+        Added New Feature                              |        Added New Feature
+                                                       |
+```
+
+To avoid this from happening, use the `--committer-date-is-author-date`. But be careful that this option **doesn't work** with both `-i` and `--root`.
+
+```bash
+git rebase --committer-date-is-author-date
+```
+
+### 3.2. Set Committer Date to Author Date for Multiple Commits
+
+Let's say we have about 10 commits that the `CommitDate` is not the same as the `AuthorDate` and we want them to be the same.
+
+```bash
+git rebase <first-bad-commit-SHA>^ --committer-date-is-author-date
+```
+
+> Tip: Use `git log --format=fuller` to see both `CommitDate` & `AuthorDate`.
+
+### 3.3. Set Commit's Date to Custom Date
+
+You made a commit 2 days ago, and God knows for whatever reason you want to **change that date** to be today's or another date. Don't freak out, this is possible!
+
+1. Rebase to before said commit and stop for amendment.
+
+    ```bash
+    git rebase -i <commit-SHA>^
+    ```
+
+1. Replace `pick` with `edit` on the line with that required commit _(the first line usually)_.
+
+1. Use one of the following commands depending on your needs.
+
+    ```bash
+    # [1] Use today's date:
+    GIT_COMMITTER_DATE="$(date)"
+    git commit --amend --no-edit --date "$(date)"
+
+    # [2] Use custom date:
+    GIT_COMMITTER_DATE="Mon Jul 1 02:06:20 2019 +0200"
+    git commit --amend --no-edit --date "Mon Jul 1 02:06:20 2019 +0200"
+    ```
+
+---
+
+## 4. Expecto Patronum
 
 **Finding bugs** in long git histories isn't that easy, but by summoning a Patronus to help you hunting them, it will be much easier.
 
-### 3.1. Discover Bugs Using `git bisect`
+### 4.1. Discover Bugs Using `git bisect`
 
 Debug almost all problems that involve a long history of changes, tracked using Git, and discover when you introduced a bug in your code.
 
@@ -176,11 +245,11 @@ Debug almost all problems that involve a long history of changes, tracked using 
 
 ---
 
-## 4. Obliviate
+## 5. Obliviate
 
 Obliviate is a spell used to **wipe memories**, to forget about things, like old git histories, and **start fresh**.
 
-### 4.1. Create Orphan Branch
+### 5.1. Create Orphan Branch
 
 Orphan branches aren't based on any other branches.The first commit made on this new orphan branch will have no parents and it will be the **root of a new history** totally disconnected from all the other branches and commits.  
 If you are using [GitHub Pages](https://pages.github.com/) this might be helpful as you can create a new branch named `gh-pages`. This branch is “orphaned” and therefore completely separate from your repository’s prior history.
@@ -208,11 +277,11 @@ git clean -fdx
 
 ---
 
-## 5. Riddikulus
+## 6. Riddikulus
 
 Riddikulus is used to **transforms nasty git repositories** from something scary as complicated long histories **into something silly** as numbers, lists, insights and statistics.
 
-### 5.1. Count Occurrence of Pattern
+### 6.1. Count Occurrence of Pattern
 
 Let's say you want to count how many lambda expressions (`->`) you've used in all `.java` files, a quick spell can count it for you in the blink of an eye.
 
@@ -220,7 +289,7 @@ Let's say you want to count how many lambda expressions (`->`) you've used in al
 git grep '\->' '*.java' | wc -l
 ```
 
-### 5.2. Count Number of Commits
+### 6.2. Count Number of Commits
 
 You've been committing for so long now, maybe it's time to know how many commits are out there now.
 
@@ -229,7 +298,7 @@ git rev-list --count <branch-name>    # One branch
 git rev-list --count --all            # All branches
 ```
 
-### 5.3. Count Lines of Code
+### 6.3. Count Lines of Code
 
 Curiosity is an enough reason to know loc.
 
@@ -238,7 +307,7 @@ git ls-files | xargs wc -l          # Detailed
 git ls-files | xargs cat | wc -l    # Total
 ```
 
-### 5.4. Count Lines Changed
+### 6.4. Count Lines Changed
 
 You have been working on multiple features, and now you wanna know how many lines you have touched. It's fine spells got your back.
 _**Note:** Add `--staged` if your changes were staged._
@@ -248,7 +317,7 @@ git diff --stat         # Detailed
 git diff --shortstat    # Total
 ```
 
-### 5.5. Export Full Log to File
+### 6.5. Export Full Log to File
 
 Exporting your repository log to a file might be helpful sometimes, just learn this spell until the time comes and you need it.
 
@@ -273,7 +342,7 @@ Exporting your repository log to a file might be helpful sometimes, just learn t
     },' > log.json
     ```
 
-### 5.6. List Ignored Files
+### 6.6. List Ignored Files
 
 You wanna make sure that your `.gitignore` is working fine and that all files that you want to ignore are really ignored. Here's a quick spell for you.
 
@@ -281,7 +350,7 @@ You wanna make sure that your `.gitignore` is working fine and that all files th
 git ls-files --others --ignored --exclude-standard
 ```
 
-### 5.7. List Large Files
+### 6.7. List Large Files
 
 Keeping track of your repository size is something that you need to learn, this spell might be helpful if you managed to do so.
 
@@ -296,11 +365,11 @@ git rev-list --objects --all \
 
 ---
 
-## 6. Markdown Beautifio
+## 7. Markdown Beautifio
 
 Some spells that you can use on GitHub to add a bit of _"beautifulness"_ to your **markdown files**.
 
-### 6.1. Icons
+### 7.1. Icons
 
 Adding icons to markdown files isn't that hard, you can use any of those two providers to help you:
 
@@ -332,7 +401,7 @@ Adding icons to markdown files isn't that hard, you can use any of those two pro
 
     <img alt="simple-icons" width="80" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" />
 
-### 6.2. Contributors Image
+### 7.2. Contributors Image
 
 [contributors-img](https://contributors-img.firebaseapp.com/) provides a good way for adding a good looking image of your contributors in your markdown file.
 
@@ -348,7 +417,7 @@ Adding icons to markdown files isn't that hard, you can use any of those two pro
 [contributors]: https://github.com/angular/angular-ja/graphs/contributors
 [contributors-img]: https://contributors-img.firebaseapp.com/image?repo=angular/angular-ja
 
-### 6.3. Dropdowns
+### 7.3. Dropdowns
 
 Keep the less useful content collapsed, no one needs to see it!
 
@@ -380,7 +449,7 @@ Keep the less useful content collapsed, no one needs to see it!
 
 </details>
 
-### 6.4. Badges
+### 7.4. Badges
 
 A wise wizard once said _"Just add more badges!"_.  
 Maybe that's why they created [**shields.io**](https://shields.io/).
@@ -393,7 +462,7 @@ Maybe that's why they created [**shields.io**](https://shields.io/).
 ![GitHub last commit](https://img.shields.io/github/last-commit/YoussefRaafatNasry/git-for-wizards.svg)
 ![GitHub repo size](https://img.shields.io/github/repo-size/YoussefRaafatNasry/git-for-wizards.svg)
 
-### 6.5. Captions
+### 7.5. Captions
 
 Some photos are meaningless without captions, but wizards know how to handle that!
 
@@ -411,7 +480,7 @@ Some photos are meaningless without captions, but wizards know how to handle tha
     <sub><sup>© 2019, licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</sup></sub>
 </div>
 
-### 6.6. README Headers
+### 7.6. README Headers
 
 This will be enough as a start to add a cool header for your README file, but try to be more creative.
 
@@ -431,15 +500,16 @@ This will be enough as a start to add a cool header for your README file, but tr
 
 ---
 
-## 7. The THANK YOU Spell :heart:
+## 8. The THANK YOU Spell :heart:
 
-### 7.1. References and Acknowledgments
+### 8.1. References and Acknowledgments
 
+1. [Change the date of a git commit](https://codewithhugo.com/change-the-date-of-a-git-commit/)
 1. [How to discover a bug using git bisect?](https://flaviocopes.com/git-bisect/)
 1. [How to find/identify large commits in git history?](https://stackoverflow.com/a/42544963/10194811)
 1. [Orphaned Branches in Git](https://bugfactory.io/2016/02/12/orphaned-brachnes-in-git/)
 
-### 7.2. Contributors
+### 8.2. Contributors
 
 [![contributors][contrib-img]][contrib]
 
