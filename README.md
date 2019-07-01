@@ -26,6 +26,7 @@ Show some support to help improve this repo and expose more magic spells!
     - [2.1. Clean Local Untracked Files](#21-clean-local-untracked-files)
     - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
     - [2.3. Delete Remote-tracking Branches](#23-delete-remote-tracking-branches)
+    - [2.4. Delete an Entire Commit](#24-delete-an-entire-commit)
 - [**3. Reparo**](#3-reparo)
     - [3.1. Rebase Without Changing Dates](#31-rebase-without-changing-dates)
     - [3.2. Set Committer Date to Author Date for Multiple Commits](#32-set-committer-date-to-author-date-for-multiple-commits)
@@ -149,6 +150,14 @@ Deleting local branches doesn't clean the repo 100%, since they were tracking re
 
 ```bash
 git fetch --prune
+```
+
+### 2.4. Delete an Entire Commit
+
+Deleting a commit is somehow **dangerous**, since the SHA of all following commits **will change**. Please be careful using this!
+
+```bash
+git rebase --onto <commit-SHA>^ <commit-SHA>
 ```
 
 ---
