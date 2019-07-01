@@ -31,7 +31,9 @@ Show some support to help improve this repo and expose more magic spells!
     - [3.2. Set Committer Date to Author Date for Multiple Commits](#32-set-committer-date-to-author-date-for-multiple-commits)
     - [3.3. Set Commit's Date to Custom Date](#33-set-commits-date-to-custom-date)
 - [**4. Expecto Patronum**](#4-expecto-patronum)
-    - [4.1. Discover Bugs Using `git bisect`](#41-discover-bugs-using-git-bisect)
+    - [4.1. Generate `.gitignore` from Git Bash](#41-generate-gitignore-from-git-bash)
+    - [4.2. Export Repository's Archive](#42-export-repositorys-archive)
+    - [4.3. Discover Bugs Using `git bisect`](#43-discover-bugs-using-git-bisect)
 - [**5. Obliviate**](#5-obliviate)
     - [5.1. Create Orphan Branch](#51-create-orphan-branch)
 - [**6. Riddikulus**](#6-riddikulus)
@@ -217,11 +219,34 @@ You made a commit 2 days ago, and God knows for whatever reason you want to **ch
 
 ## 4. Expecto Patronum
 
-**Finding bugs** in long git histories isn't that easy, but by summoning a Patronus to help you hunting them, it will be much easier.
+Expecto Patronum is a spell for **summoning stuff** to help you and ease your life.
 
-### 4.1. Discover Bugs Using `git bisect`
+### 4.1. Generate `.gitignore` from Git Bash
 
-Debug almost all problems that involve a long history of changes, tracked using Git, and discover when you introduced a bug in your code.
+Too lazy to copy and paste or download your `.gitignore` file each time you create a new repository? Try out this simple spell.
+
+```bash
+curl -s https://www.gitignore.io/api/{your_list} >> .gitignore
+```
+
+Replace **`{your_list}`** with a comma-separated-list _(one or more)_ of **Operating System** or **IDE** or **Programming Language**, here are some examples:
+
+- `https://www.gitignore.io/api/windows`
+- `https://www.gitignore.io/api/visualstudio`
+- `https://www.gitignore.io/api/c++`
+- `https://www.gitignore.io/api/linux,intellij,java`
+
+### 4.2. Export Repository's Archive
+
+GitHub has `Download as .zip` option in all hosted repositories, but is it possible to achieve the same result using only your git bash? Surely it's, maybe that's why we wrote this spell and your are reading it now.
+
+```bash
+git archive master --output=master.zip
+```
+
+### 4.3. Discover Bugs Using `git bisect`
+
+Finding bugs in long git histories isn't that easy, but by summoning a Patronus to help you hunting them and discover when you introduced a bug in your code, it will be much easier.
 
 1. To start the binary search process, you will need to checkout to your latest commit first, then provide git with 2 commits to search for the bug within, the last good commit and the commit that first introduced the bug
 
