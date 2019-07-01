@@ -36,6 +36,7 @@ Show some support to help improve this repo and expose more magic spells!
     - [4.3. Discover Bugs Using `git bisect`](#43-discover-bugs-using-git-bisect)
 - [**5. Obliviate**](#5-obliviate)
     - [5.1. Create Orphan Branch](#51-create-orphan-branch)
+    - [5.2. Clean Data out of Repository History](#52-clean-data-out-of-repository-history)
 - [**6. Riddikulus**](#6-riddikulus)
     - [6.1. Count Occurrence of Pattern](#61-count-occurrence-of-pattern)
     - [6.2. Count Number of Commits](#62-count-number-of-commits)
@@ -302,6 +303,32 @@ rm .git/index
 git clean -fdx
 ```
 
+### 5.2. Clean Data out of Repository History
+
+For whatever reason, one day, you committed a file containing some **Passwords and Credentials** and some **large video** files.  Seriously dude? What was going on your mind when you did this? But don't worry, there's a great tool called [BFG][bfg] that will help you remove **Crazy Big Files**, **Passwords**, **Credentials** & other **Private data** out of your Git repository history.
+
+1. Download [Java Runtime Environment](https://www.java.com/en/download/manual.jsp) (Java 8 or above).
+1. Download [BFG][bfg] from official site.
+1. Determine the files you want to remove: Use specific names (`Passwords.txt`) or wildcards (`*.mp4`).
+1. Clone a fresh copy of **`{your_big_repo}`**, using the --mirror flag:<br/><br/>
+    ```bash
+    git clone --mirror https://github.com/{your_big_repo}.git
+    ```
+1. Run BFG to clean your repository up:<br/><br/>
+    ```bash
+    java -jar bfg-1.13.0.jar --delete-files "{Passwords.txt,*.mp4}" {your_big_repo}.git
+    ```
+1. Strip out the unwanted dirty data then push:<br/><br/>
+    ```bash
+    cd {your_big_repo}.git
+    git reflog expire --expire=now --all && git gc --prune=now --aggressive
+    git push
+    ```
+
+> \* For better explanation read [Usage](https://rtyley.github.io/bfg-repo-cleaner/#usage) from the official site.
+
+[bfg]: https://rtyley.github.io/bfg-repo-cleaner/
+
 ---
 
 ## 6. Riddikulus
@@ -558,6 +585,7 @@ This will be enough as a start to add a cool header for your README file, but tr
 
 ### 8.1. References and Acknowledgments
 
+1. [BFG Repo-cleaner](https://rtyley.github.io/bfg-repo-cleaner/)
 1. [Change the date of a git commit](https://codewithhugo.com/change-the-date-of-a-git-commit/)
 1. [How to discover a bug using git bisect?](https://flaviocopes.com/git-bisect/)
 1. [How to find/identify large commits in git history?](https://stackoverflow.com/a/42544963/10194811)
