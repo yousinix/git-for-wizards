@@ -75,7 +75,7 @@ Magic Wands are the **tools and the extensions** that you can use to improve you
 
 ### 1.2. GitHub Chrome Extensions
 
-1. [**GitHub-Dark**](https://github.com/StylishThemes/GitHub-Dark): Dark GitHub style.
+1. [**GitHub-Dark**](https://github.com/StylishThemes/GitHub-Dark) + [**Overlay-Scrollbars**](https://github.com/StylishThemes/Overlay-Scrollbars): Dark GitHub style.
 1. [**octolinker**](https://octolinker.github.io/): Allow navigation through code on GitHub more efficiently.
 1. [**github-repo-size**](https://github.com/harshjv/github-repo-size): Display repository size on GitHub.
 1. [**git-history-browser-extension**](https://github.com/LuisReinoso/git-history-browser-extension): Add a button to the github file interface to see its history.
