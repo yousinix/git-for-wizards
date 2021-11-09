@@ -27,6 +27,7 @@ Show some support to help improve this repo and expose more magic spells!
     - [2.2. Delete All Branches Except `master`](#22-delete-all-branches-except-master)
     - [2.3. Delete Remote-tracking Branches](#23-delete-remote-tracking-branches)
     - [2.4. Delete an Entire Commit](#24-delete-an-entire-commit)
+    - [2.5. Clean the Stash](#25-clean-the-stash)
 - [**3. Reparo**](#3-reparo)
     - [3.1. Rebase Without Changing Dates](#31-rebase-without-changing-dates)
     - [3.2. Set Committer Date to Author Date for Multiple Commits](#32-set-committer-date-to-author-date-for-multiple-commits)
@@ -159,6 +160,29 @@ Deleting a commit is somehow **dangerous**, since the SHA of all following commi
 ```bash
 git rebase --onto <commit-SHA>^ <commit-SHA>
 ```
+
+### 2.5. Clean the Stash
+
+Sometimes you need to rollback to a clean working directory without losing your changes, so you stash them away using the [stash command](https://git-scm.com/docs/git-stash).
+But it always can get messy; as this command stashes away the dirty changes in the stash list (more of a stack actually), So after a few stashes you're gonna end up with an outstretched list of stashes.
+
+```bash
+git stash list
+```
+
+You can always clean the whole stash list using a single a simple magic spell
+
+```bash
+git stash clear
+```
+
+Or you can remove one stash entry at a time using another magic spell
+
+```bash
+git stash drop
+```
+
+> **CAUTION!:** Those stash entries will then be subject to pruning, and may be impossible to recover
 
 ---
 
